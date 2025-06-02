@@ -36,5 +36,45 @@
         <members>*</members>
         <name>CustomObject</name>
     </types>
+    <types>
+        <members>*</members>
+        <name>CustomObject</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>CustomLabel</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>Layout</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>FlexiPage</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>AnimationRule</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>CustomTab</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>GlobalValueSet</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>PathAssistant</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>PermissionSet</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>ReportType</name>
+    </types>
     <version>63.0</version>
 </Package>

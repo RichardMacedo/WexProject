@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>ProjectPath</members>
+        <name>AnimationRule</name>
+    </types>
+
+    <types>
+        <members>newProjectWithMilestonesAndItemsAura</members>
+        <name>AuraDefinitionBundle</name>
+    </types>
+
+    <types>
+        <members>newProjectWithMilestonesAndItems</members>
+        <members>utility</members>
+        <name>LightningComponentBundle</name>
+    </types>
+
+    <types>
+        <members>DataFactory</members>
+        <members>MilestoneTriggerHandler</members>
+        <members>MilestoneTriggerTest</members>
+        <members>ProjectWithMilestonesAndItemsController</members>
+        <members>ProjectWithMilestonesAndItemsCtrlTest</members>
+        <members>TodoItemTriggerHandler</members>
+        <members>TodoItemTriggerTest</members>
+        <name>ApexClass</name>
+    </types>
+
+    <types>
+        <members>MilestoneTrigger</members>
+        <members>TodoItemTrigger</members>
+        <name>ApexTrigger</name>
+    </types>
+
+    <types>
+        <members>Error</members>
+        <members>Success</members>
+        <name>CustomLabel</name>
+    </types>
+
+    <types>
+        <members>Milestone__c.IsComplete__c</members>
+        <members>Milestone__c.ItemsCompleted__c</members>
+        <members>Milestone__c.ItemsCount__c</members>
+        <members>Milestone__c.PercentCompletion__c</members>
+        <members>Milestone__c.Project__c</members>
+        <members>Milestone__c.Status__c</members>
+        <members>Project__c.MilestonesCompleted__c</members>
+        <members>Project__c.MilestonesCount__c</members>
+        <members>Project__c.PercentCompletion__c</members>
+        <members>Project__c.Status__c</members>
+        <members>TodoItem__c.Milestone__c</members>
+        <members>TodoItem__c.Status__c</members>
+        <name>CustomField</name>
+    </types>
+    <types>
+        <members>Milestone__c</members>
+        <members>Project__c</members>
+        <members>TodoItem__c</members>
+        <name>CustomObject</name>
+    </types>
+    <types>
+        <members>Project__c.All</members>
+        <name>ListView</name>
+    </types>
+
+    <types>
+        <members>Project__c</members>
+        <name>CustomTab</name>
+    </types>
+
+    <types>
+        <members>Milestone_Record_Page</members>
+        <members>Project_Record_Page</members>
+        <name>FlexiPage</name>
+    </types>
+
+    <types>
+        <members>Status</members>
+        <name>GlobalValueSet</name>
+    </types>
+
+    <types>
+        <members>Milestone__c-Milestone Layout</members>
+        <members>Project__c-Project Layout</members>
+        <members>TodoItem__c-To-do item Layout</members>
+        <name>Layout</name>
+    </types>
+
+    <types>
+        <members>ProjectPath</members>
+        <name>PathAssistant</name>
+    </types>
+
+    <types>
+        <members>Wex_Project</members>
+        <name>PermissionSet</name>
+    </types>
+
+    <types>
+        <members>unfiled$public/NewProjectsWithMilestonesReport</members>
+        <members>unfiled$public/New_Projects_with_Milestones_Rep_2_DwO</members>
+        <name>Report</name>
+    </types>
+
+    <types>
+        <members>Projects_with_Milestones_with_To_do_items</members>
+        <name>ReportType</name>
+    </types>
+
+    <types>
+        <members>OverrideClass</members>
+        <members>SheetJS</members>
+        <name>StaticResource</name>
+    </types>
+
+    <version>63.0</version>
+</Package>

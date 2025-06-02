@@ -1,0 +1,15 @@
+.masterAlign {
+    display: flex;
+    justify-content: center;
+}
+
+.slds-modal__container{
+    width: 90% !important;
+    
+}
+
+.slds-modal__content_headless {
+    overflow: auto;
+    min-height:400px;
+    max-height: 75% !important;
+}
