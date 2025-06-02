@@ -1,0 +1,112 @@
+<template>
+    <div class="masterAlign">
+
+        <div style="width: 80%;">
+            <template lwc:if={spinner}>
+                <lightning-spinner alternative-text='Loading..' size="large"></lightning-spinner>
+            </template>
+
+            <lightning-modal-header>
+                <h1 class="slds-text-heading_medium">{headerText}</h1>
+                <br></br>
+                <lightning-progress-indicator current-step={currentStep} type="base" variant="base">
+                    <lightning-progress-step label="Project" value="step1"></lightning-progress-step>
+                    <lightning-progress-step label="Milestones" value="step2"></lightning-progress-step>
+                    <lightning-progress-step label="To-do items" value="step3"></lightning-progress-step>
+                </lightning-progress-indicator>
+            </lightning-modal-header>
+
+            <lightning-modal-body>
+                <template lwc:if={isStep1}>
+                    <lightning-layout multiple-rows>
+                        <lightning-layout-item padding="around-small" size="2">
+                            <lightning-input type="text" name="Name" label="Project Name" value={project.Name} required="true" onchange={handleProjectInputChange}></lightning-input>
+                        </lightning-layout-item>
+
+                        <lightning-layout-item padding="around-small" size="4">
+                            <lightning-record-picker
+                                object-api-name="User"
+                                label="User"
+                                placeholder="Search"
+                                onchange={handleUserChange}
+                                filter={filter}>
+                            </lightning-record-picker>
+                        </lightning-layout-item>
+                    </lightning-layout>
+                </template>
+
+                <template lwc:if={isStep2}>
+                    <lightning-layout multiple-rows>
+                        <lightning-layout-item padding="around-small" size="2">
+                            <lightning-input type="text" name="Name" label="Milestone Name" value={milestone.Name} required="true" onchange={handleInputMilestoneChange}></lightning-input>
+                        </lightning-layout-item>
+
+                        <lightning-layout-item padding="around-small" size="2">
+                            <lightning-button class="slds-button slds-m-top_large" variant="brand" label="Add Milestone" onclick={handleAddMilestone} disabled={cantAddMilestone}></lightning-button>
+                        </lightning-layout-item>
+
+                        <lightning-layout-item size="3">
+                            <div align="center">
+                                <lightning-input type="file" label="Import Milestones" onchange={handleMilestoneFileChange}></lightning-input>
+                                <lightning-helptext content="If you wish to import multiple Milestones simultaneously, use a .xlsx or .xls file like the sample downloadable below."></lightning-helptext>
+                                <br/>
+                                <a onclick={downloadTemplate}>Download template</a>
+                            </div>
+                        </lightning-layout-item>
+
+                        <lightning-layout-item padding="around-small" size="12">
+                            <div align="center" class="slds-box" style="width:100%; max-height: 500px; overflow:auto;">
+                                <lightning-datatable 
+                                    hide-checkbox-column="true" 
+                                    show-row-number-column="true" 
+                                    key-field="key" 
+                                    data={listMilestones} 
+                                    columns={milestonesColumns} 
+                                    onrowaction={handleRowActionMilestone}
+                                    default-sort-direction={defaultSortDirection}
+                                    sorted-direction={sortDirection}
+                                    sorted-by={sortedBy}
+                                    onsort={onHandleSortMilestones}>
+                                </lightning-datatable>
+                            </div>
+                        </lightning-layout-item>
+                    </lightning-layout>
+                </template>
+
+                <template lwc:if={isStep3} for:each={listMilestones} for:item="milestone">
+                    <lightning-layout multiple-rows="true" key={milestone.key} class="slds-box">
+                        <lightning-layout-item padding="around-small" size="2">
+                            <label class="slds-form-element__label">Milestone</label>
+                            <br/>
+                            {milestone.Name}
+                        </lightning-layout-item>
+
+                        <lightning-layout-item padding="around-small" size="2">
+                            <lightning-input type="text" name="Name" data-id={milestone.key} label="To-do Item Name" required="true"></lightning-input>
+                        </lightning-layout-item>
+
+                        <lightning-layout-item padding="around-small" size="2">
+                            <lightning-button class="slds-button slds-m-top_large" variant="brand" data-index={milestone.key} label="Add To-do Item" onclick={handleAddItem}></lightning-button>
+                        </lightning-layout-item>
+
+                        <lightning-layout-item padding="around-small" size="12">
+                            <div align="center" style="width:100%; max-height: 500px; overflow:auto;">
+                                <lightning-datatable hide-checkbox-column="true" show-row-number-column="true" key-field="key" data-index={milestone.key} data={milestone.listItems} columns={itemsColumns} onrowaction={handleRowActionItem}></lightning-datatable>
+                            </div>
+                        </lightning-layout-item>
+                    </lightning-layout>
+                </template>
+            </lightning-modal-body>
+
+            <lightning-modal-footer>
+                <div class="slds-clearfix">
+                    <lightning-button class="slds-button slds-m-left_x-small slds-float_left" variant="destructive" label="Cancel" onclick={handleCancel}></lightning-button>
+                    <lightning-button class="slds-button slds-m-left_x-small slds-float_left" variant="neutral" label="Back" onclick={handleBack} if:true={showBack} disabled={canReturn}></lightning-button>
+
+                    <lightning-button class="slds-button slds-m-left_x-small slds-float_right" variant="brand" label="Next" onclick={handleNext} if:true={showNext} disabled={cantProceed}></lightning-button>
+                    <lightning-button class="slds-button slds-m-left_x-small slds-float_right" variant="brand" label="Save" onclick={handleSave} if:true={canSave}></lightning-button>
+                </div>
+            </lightning-modal-footer>
+        </div>
+    </div>  
+</template>
