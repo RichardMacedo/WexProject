@@ -95,7 +95,9 @@
     </types>
 
     <types>
+        <members>MilestonePath</members>
         <members>ProjectPath</members>
+        <members>TodoItemPath</members>
         <name>PathAssistant</name>
     </types>
 
