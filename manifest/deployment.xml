@@ -6,6 +6,11 @@
     </types>
 
     <types>
+        <members>PathAssistant</members>
+        <name>Settings</name>
+    </types>
+
+    <types>
         <members>newProjectWithMilestonesAndItemsAura</members>
         <name>AuraDefinitionBundle</name>
     </types>
@@ -73,6 +78,7 @@
     <types>
         <members>Milestone_Record_Page</members>
         <members>Project_Record_Page</members>
+        <members>To_do_item_Record_Page</members>
         <name>FlexiPage</name>
     </types>
 
